@@ -60,10 +60,11 @@ return {
                 },
                 TODO = { icon = ' ', color = 'info', alt = { 'todo', 'Todo' } },
                 HACK = { icon = ' ', color = 'warning', alt = { 'Hack' } },
-                WARN = { icon = ' ', color = 'warning', alt = { 'WARNING', 'XXX' } },
+                WARN = { icon = ' ', color = 'warning', alt = { 'Warn', 'XXX' } },
                 PERF = { icon = ' ', alt = { 'OPTIM', 'PERFORMANCE', 'OPTIMIZE' } },
                 NOTE = { icon = ' ', color = 'hint', alt = { 'INFO', 'Note', 'Info' } },
                 TEST = { icon = '⏲ ', color = 'test', alt = { 'TESTING', 'PASSED', 'FAILED', 'Testing', 'Testing', 'Passed', 'passed', 'Failed', 'failed' } },
+                REQUIRE = { icons = '*', color = 'default', alt = { 'REQ', 'Require', 'Requirement', 'REQUIREMENT' } },
             },
             gui_style = {
                 fg = 'NONE', -- The gui style to use for the fg highlight group.
@@ -86,13 +87,47 @@ return {
             require('colorizer').setup()
         end,
     },
+    -- BUG: Fix the bug, not rendering pdf file: pdftex not avilable
+    -- !pandoc markdown.md -o pdfFile.pdf
+    -- returns error
+    -- Need to install pdflatex to render the markdown file as pdf
+    {
+        'arminveres/md-pdf.nvim',
+        branch = 'main', -- you can assume that main is somewhat stable until releases will be made
+        lazy = true,
+        keys = {
+            {
+                '<leader>,',
+                function()
+                    require('md-pdf').convert_md_to_pdf()
+                end,
+                desc = 'Markdown preview',
+            },
+        },
+        opts = {},
+        config = function()
+            require('md-pdf').setup()
+        end,
+    },
     {
         'iamcco/markdown-preview.nvim',
         cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
         build = 'cd app && yarn install',
         init = function()
             vim.g.mkdp_filetypes = { 'markdown' }
+            vim.g.mkdp_theme = 'light'
         end,
         ft = { 'markdown' },
     },
+    {
+        'derektata/lorem.nvim',
+        config = function()
+            require('lorem').opts {
+                sentenceLength = 'medium',
+                comma_chance = 0.2,
+                max_commas_per_sentence = 2,
+            }
+        end,
+    },
+    { 'echasnovski/mini.nvim', version = '*' },
 }

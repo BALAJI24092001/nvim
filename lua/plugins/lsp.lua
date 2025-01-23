@@ -107,7 +107,7 @@ return { -- LSP Configuration & Plugins
 
         -- Enable the following language servers
         local servers = {
-            html = { filetypes = { 'html', 'twig', 'hbs' } },
+            -- html = { filetypes = { 'html', 'twig', 'hbs' } },
             -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
             -- tsserver = {},
             lua_ls = {

@@ -16,14 +16,11 @@ return {
                 'vimdoc',
                 'vim',
                 'regex',
-                'terraform',
                 'sql',
                 'dockerfile',
                 'toml',
                 'json',
                 'java',
-                'groovy',
-                'go',
                 'gitignore',
                 'graphql',
                 'yaml',
@@ -34,7 +31,6 @@ return {
                 'bash',
                 'tsx',
                 'css',
-                'html',
             },
 
             -- Autoinstall languages that are not installed
