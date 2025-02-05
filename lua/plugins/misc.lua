@@ -20,18 +20,18 @@ return {
         -- Hints keybinds
         'folke/which-key.nvim',
         opts = {
-            -- win = {
-            --   border = {
-            --     { '┌', 'FloatBorder' },
-            --     { '─', 'FloatBorder' },
-            --     { '┐', 'FloatBorder' },
-            --     { '│', 'FloatBorder' },
-            --     { '┘', 'FloatBorder' },
-            --     { '─', 'FloatBorder' },
-            --     { '└', 'FloatBorder' },
-            --     { '│', 'FloatBorder' },
-            --   },
-            -- },
+            win = {
+                border = {
+                    { '┌', 'FloatBorder' },
+                    { '─', 'FloatBorder' },
+                    { '┐', 'FloatBorder' },
+                    { '│', 'FloatBorder' },
+                    { '┘', 'FloatBorder' },
+                    { '─', 'FloatBorder' },
+                    { '└', 'FloatBorder' },
+                    { '│', 'FloatBorder' },
+                },
+            },
         },
     },
     {
@@ -65,6 +65,7 @@ return {
                 NOTE = { icon = ' ', color = 'hint', alt = { 'INFO', 'Note', 'Info' } },
                 TEST = { icon = '⏲ ', color = 'test', alt = { 'TESTING', 'PASSED', 'FAILED', 'Testing', 'Testing', 'Passed', 'passed', 'Failed', 'failed' } },
                 REQUIRE = { icons = '*', color = 'default', alt = { 'REQ', 'Require', 'Requirement', 'REQUIREMENT' } },
+                OPTIONAL = { icon = '', color = 'default' },
             },
             gui_style = {
                 fg = 'NONE', -- The gui style to use for the fg highlight group.
@@ -86,38 +87,6 @@ return {
         config = function()
             require('colorizer').setup()
         end,
-    },
-    -- BUG: Fix the bug, not rendering pdf file: pdftex not avilable
-    -- !pandoc markdown.md -o pdfFile.pdf
-    -- returns error
-    -- Need to install pdflatex to render the markdown file as pdf
-    {
-        'arminveres/md-pdf.nvim',
-        branch = 'main', -- you can assume that main is somewhat stable until releases will be made
-        lazy = true,
-        keys = {
-            {
-                '<leader>,',
-                function()
-                    require('md-pdf').convert_md_to_pdf()
-                end,
-                desc = 'Markdown preview',
-            },
-        },
-        opts = {},
-        config = function()
-            require('md-pdf').setup()
-        end,
-    },
-    {
-        'iamcco/markdown-preview.nvim',
-        cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
-        build = 'cd app && yarn install',
-        init = function()
-            vim.g.mkdp_filetypes = { 'markdown' }
-            vim.g.mkdp_theme = 'light'
-        end,
-        ft = { 'markdown' },
     },
     {
         'derektata/lorem.nvim',

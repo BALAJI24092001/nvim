@@ -17,5 +17,6 @@ return {
       topdelete = { text = '‾' },
       changedelete = { text = '~' },
     },
+    diffthis = { vertical = true, split = 'rightabove' },
   },
 }

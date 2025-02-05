@@ -1,3 +1,4 @@
+-- TODO: Learn How this plugin works
 return {
   'kdheepak/lazygit.nvim',
   cmd = {
