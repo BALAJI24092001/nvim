@@ -1,3 +1,4 @@
+-- TODO: Learn about treesitter
 -- Highlight, edit, and navigate code
 return {
     'nvim-treesitter/nvim-treesitter',
@@ -11,8 +12,6 @@ return {
             ensure_installed = {
                 'lua',
                 'python',
-                'javascript',
-                'typescript',
                 'vimdoc',
                 'vim',
                 'regex',
@@ -20,12 +19,12 @@ return {
                 'dockerfile',
                 'toml',
                 'json',
-                'java',
+                -- 'java',
                 'gitignore',
                 'graphql',
                 'yaml',
-                'make',
-                'cmake',
+                -- 'make',
+                -- 'cmake',
                 'markdown',
                 'markdown_inline',
                 'bash',
