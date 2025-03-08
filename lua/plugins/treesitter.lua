@@ -7,35 +7,17 @@ return {
         'nvim-treesitter/nvim-treesitter-textobjects',
     },
     config = function()
+        -- BUG:
+        -- treesitter is only working on clang compiler
+        require('nvim-treesitter.install').compilers = { 'clang', 'gcc', 'g++' }
         require('nvim-treesitter.configs').setup {
             -- Add languages to be installed here that you want installed for treesitter
-            ensure_installed = {
-                'lua',
-                'python',
-                'vimdoc',
-                'vim',
-                'regex',
-                'sql',
-                'dockerfile',
-                'toml',
-                'json',
-                -- 'java',
-                'gitignore',
-                'graphql',
-                'yaml',
-                -- 'make',
-                -- 'cmake',
-                'markdown',
-                'markdown_inline',
-                'bash',
-                'tsx',
-                'css',
-            },
+            ensure_installed = {},
 
             -- Autoinstall languages that are not installed
-            auto_install = true,
+            auto_install = false,
 
-            highlight = { enable = true },
+            highlight = { enable = true, disable = {}, additional_vim_regex_highlighting = false },
             indent = { enable = true },
             incremental_selection = {
                 enable = true,
@@ -92,7 +74,7 @@ return {
             },
         }
 
-        -- -- vim.treesitter.language.register('python', 'someft') -- the someft filetype will use the python parser and queries.
+        vim.treesitter.language.register('python', 'someft') -- the someft filetype will use the python parser and queries.
         -- -- Register additional file extensions
         -- vim.filetype.add { extension = { tf = 'terraform' } }
         -- vim.filetype.add { extension = { tfvars = 'terraform' } }

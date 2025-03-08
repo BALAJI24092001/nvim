@@ -47,6 +47,7 @@ return {
         -- Need to use : after a keyword for it to work
         'folke/todo-comments.nvim',
         event = 'VimEnter',
+        comments_only = false,
         dependencies = { 'nvim-lua/plenary.nvim' },
         opts = {
             merge_keywords = true,
@@ -65,7 +66,8 @@ return {
                 NOTE = { icon = ' ', color = 'hint', alt = { 'INFO', 'Note', 'Info' } },
                 TEST = { icon = '⏲ ', color = 'test', alt = { 'TESTING', 'PASSED', 'FAILED', 'Testing', 'Testing', 'Passed', 'passed', 'Failed', 'failed' } },
                 REQUIRE = { icons = '*', color = 'default', alt = { 'REQ', 'Require', 'Requirement', 'REQUIREMENT' } },
-                OPTIONAL = { icon = '', color = 'default' },
+                REF = { icon = '', color = 'test', alt = { 'Reference', 'REFERENCE' } },
+                OPTIONAL = { icon = '', color = 'default', alt = { 'OPT' } },
             },
             gui_style = {
                 fg = 'NONE', -- The gui style to use for the fg highlight group.

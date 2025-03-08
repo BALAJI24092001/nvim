@@ -1,5 +1,7 @@
 # Troubleshooting Notes for Neovim Setup
 
+<!-- TODO:-->
+
 - Check generate health of Neovim setup. `:checkhealth`
 - Update Treesitter. `:TSUpdate`
 - Check LSP installation. `:Mason`
