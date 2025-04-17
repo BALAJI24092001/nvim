@@ -94,6 +94,14 @@ if file_exists(session_file) then
     vim.cmd('source ' .. session_file)
 end
 
+local function tabnine_build_path()
+    -- Replace vim.uv with vim.loop if using NVIM 0.9.0 or below
+    if vim.uv.os_uname().sysname == 'Windows_NT' then
+        return 'pwsh.exe -file .\\dl_binaries.ps1'
+    else
+        return './dl_binaries.sh'
+    end
+end
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 -- this is also a todo

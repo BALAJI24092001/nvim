@@ -47,7 +47,7 @@ return {
         -- Need to use : after a keyword for it to work
         'folke/todo-comments.nvim',
         event = 'VimEnter',
-        comments_only = false,
+        comments_only = true,
         dependencies = { 'nvim-lua/plenary.nvim' },
         opts = {
             merge_keywords = true,
@@ -59,6 +59,8 @@ return {
                     alt = { 'FIXME', 'BUG', 'FIXIT', 'ISSUE' }, -- a set of other keywords that all map to this FIX keywords
                     -- signs = false, -- configure signs for some keywords individually
                 },
+                QUES = { icon = '', color = 'question' },
+                ANS = { icon = '', color = 'answer' },
                 TODO = { icon = ' ', color = 'info', alt = { 'todo', 'Todo' } },
                 HACK = { icon = ' ', color = 'warning', alt = { 'Hack' } },
                 WARN = { icon = ' ', color = 'warning', alt = { 'Warn', 'XXX' } },
@@ -68,6 +70,7 @@ return {
                 REQUIRE = { icons = '*', color = 'default', alt = { 'REQ', 'Require', 'Requirement', 'REQUIREMENT' } },
                 REF = { icon = '', color = 'test', alt = { 'Reference', 'REFERENCE' } },
                 OPTIONAL = { icon = '', color = 'default', alt = { 'OPT' } },
+                OUTPUT = { icon = '', color = 'test', alt = { 'Output' } },
             },
             gui_style = {
                 fg = 'NONE', -- The gui style to use for the fg highlight group.
@@ -80,6 +83,8 @@ return {
                 hint = { 'DiagnosticHint', '#10B981' },
                 default = { 'Identifier', '#7C3AED' },
                 test = { 'Identifier', '#FF00FF' },
+                question = { 'Identifier', '#691544' },
+                answer = { 'Identifier', '#61d40f' },
             },
         },
     },
@@ -101,4 +106,22 @@ return {
         end,
     },
     { 'echasnovski/mini.nvim', version = '*' },
+    -- {
+    --     'codota/tabnine-nvim',
+    --     build = 'pwsh.exe -file .\\dl_binaries.ps1',
+    --     disable_auto_comment = true,
+    --     accept_keymap = '<Tab>',
+    --     dismiss_keymap = '<C-]>',
+    --     debounce_ms = 800,
+    --     suggestion_color = { gui = '#808080', cterm = 244 },
+    --     exclude_filetypes = { 'TelescopePrompt', 'NvimTree' },
+    --     log_file_path = nil, -- absolute path to Tabnine log file
+    --     ignore_certificate_errors = false,
+    --     -- workspace_folders = {
+    --     --   paths = { "/your/project" },
+    --     --   get_paths = function()
+    --     --       return { "/your/project" }
+    --     --   end,
+    --     -- },
+    -- },
 }
