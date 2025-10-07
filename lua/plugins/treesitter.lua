@@ -9,7 +9,7 @@ return {
     config = function()
         -- BUG:
         -- treesitter is only working on clang compiler
-        require('nvim-treesitter.install').compilers = { 'clang', 'gcc', 'g++' }
+        require('nvim-treesitter.install').compilers = { 'zig', 'clang', 'g++', 'gcc' }
         require('nvim-treesitter.configs').setup {
             -- Add languages to be installed here that you want installed for treesitter
             ensure_installed = {},
