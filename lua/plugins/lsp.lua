@@ -132,7 +132,7 @@ return { -- LSP Configuration & Plugins
                             callSnippet = 'Replace',
                         },
                         telemetry = { enable = false },
-                        diagnostics = { disable = { 'missing-fields' } },
+                        diagnostics = { disable = { 'missing-fields' }, globals = { 'vim' } },
                     },
                 },
             },
@@ -243,6 +243,13 @@ return { -- LSP Configuration & Plugins
                     server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
                     require('lspconfig')[server_name].setup(server)
                 end,
+            },
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        globals = { 'vim' },
+                    },
+                },
             },
         }
     end,

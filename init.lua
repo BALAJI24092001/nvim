@@ -31,7 +31,7 @@ local themes = {
 require('lazy').setup({
     require(themes[env_var_nvim_theme]),
     require 'plugins.telescope',
-    require 'plugins.treesitter',
+    -- require 'plugins.treesitter',
     require 'plugins.lsp',
     require 'plugins.autocompletion',
     require 'plugins.none-ls',
@@ -102,6 +102,26 @@ local function tabnine_build_path()
         return './dl_binaries.sh'
     end
 end
+
+vim.lsp.config('lua_ls', {
+    settings = {
+        Lua = {
+            runtime = {
+                version = 'LuaJIT', -- Neovim uses LuaJIT
+            },
+            diagnostics = {
+                globals = { 'vim' }, -- recognize Neovim's global
+            },
+            workspace = {
+                library = vim.api.nvim_get_runtime_file('', true),
+                checkThirdParty = false,
+            },
+            telemetry = {
+                enable = false,
+            },
+        },
+    },
+})
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 -- this is also a todo
